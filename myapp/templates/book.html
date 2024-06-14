@@ -1,0 +1,135 @@
+{% extends 'layout.html'%}
+{% load static %}
+{% block bodycontent %}
+<style>
+    table,tr,th{
+        height:50px;
+        text-align: center;
+    }
+    th,td{
+        width: 150px;
+    }
+    th{
+        color: black;
+    }
+</style>
+<div class="container mt-5 p-3">
+    <h2><center>ON <span style="color: #f4db31;">BOOKING</span></center></h2><hr>
+    <form action="/bookdetails" enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-lg-4">
+            <img src="{{getdata.Photo.url}}" width="75%" height="75%"><br>
+        </div>
+        <div class="col-lg-4">
+            <table >
+                <tr>
+                    <th>MODEL</th>
+                    <th>No of Seats</th>
+                    <th>Color</th>
+                </tr>
+                <tr>
+                    <td>{{getdata.Model}}</td>
+                    <td>{{getdata.Seats}} </td>
+                    <td>{{getdata.Color}}</td>
+                </tr>
+            </table><br>
+            <center>
+                <label for="carno" style="color:black;">Car Number</label> <br>
+            </center>
+            
+            <input type="text"  class="form-control p-4" name="cno" placeholder="First Name" value="{{getdata.CarNumber}}" readonly><br>
+        </div>
+        <div class="col-lg-4 new-input">
+            <h2>Personal Detail</h2>
+            <input type="text"  class="form-control p-4" name="fname" placeholder="First Name" value="{{ cr.name }}" required><br>
+            <input type="email" class="form-control p-4" name="email" placeholder="Your Email" value="{{ cr.email }}" required="required"><br>
+            <input type="text" class="form-control p-4" name="number" placeholder="Mobile Number" value="{{ cr.mobile }}" required="required"><br>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-3 form-group new-input">
+            <div>
+                <select class="custom-select" style="height: 50px;" name="picloc">
+                    <option value="">Pick Up Area</option>
+                    {% for i in a %}
+                    <option value="{{ i.area }}">{{ i.area }}</option>
+                    {% endfor %}
+                </select><br>
+            </div><br>
+            
+
+            <div class="date" id="date2" data-target-input="nearest">
+                <input type="date" class="form-control p-4 datetimepicker-input" name="picdate" placeholder="Pickup Date"
+                data-target="#date2" data-toggle="datetimepicker" />
+            </div><br>
+
+            <select class="custom-select new-input" name="numperson" style="height: 50px;" name="numof">
+                <option selected>Num Of Persons</option>
+                {% with getdata.Seats|center:getdata.Seats as range %}
+                {% for i in range %}
+                <option value="{{ i }}"> {{ i }}</option>
+                {% endfor %}
+                {% endwith %}
+            </select><br>
+
+        </div>
+
+        <div class="col-3 form-group new-input">
+            <div>
+                <select class="custom-select px-4 new-input" style="height: 50px;" name="droploc">
+                    <option value="">Drop Area</option>
+                    {% for i in a %}
+                    <option value="{{ i.area }}">{{ i.area }}</option>
+                    {% endfor %}
+                </select><br>
+            </div><br>            
+
+            <div class="time new-input new-input" id="time2" data-target-input="nearest">
+                <input type="time" class="form-control p-4 datetimepicker-input" name="pictime" placeholder="Pickup Time"
+                        data-target="#time2" data-toggle="datetimepicker" />
+            </div><br>
+            <div class="form-group new-input">
+                <select class="custom-select px-4" name="ac" style="height: 50px;" name="ac">
+                    <option selected>A/C Or Non A/C</option>
+                    <option value="AC">AC</option>
+                    <option value="Non AC">Non AC</option>
+                </select>
+            </div><br>
+
+        </div>
+        <div class="col-3 form-group new-input">
+            <div class="form-group">
+                <textarea class="form-control py-3 px-4" name="req" rows="7" placeholder="Special Request" required="required"></textarea>
+            </div><br>
+            <p class="text-warning x"><h3>Offer (in %):</h3></p>
+            <input type="text" class="form-control p-4 datetimepicker-input" name="off"
+                    value="{{ o.offer }}" readonly />
+        </div>
+            
+        <div class="col-3 form-group bg-dark rounded new-input">
+            <center>
+            <div class="mt-5">
+                <h2 class="text-primary mb-4">Payment</h2>
+                <div class="form-group">
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="pa" id="directcheck" value="directcheck">
+                        <label class="custom-control-label" for="directcheck">Cash</label>
+                    </div>
+                </div>
+                <div class="form-group mb-4">
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" name="pa" id="banktransfer" value="banktransfer">
+                        <label class="custom-control-label" for="banktransfer">Online</label>
+                    </div>
+                </div>
+                    <button type="submit" class="btn btn-warning btn-lg rounded">Book</button>
+            </div>
+        </center>
+        </div>
+    </div>
+</div>
+</form>
+<h1>{{msg}}</h1>
+{% endblock %}

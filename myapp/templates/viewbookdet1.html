@@ -1,0 +1,58 @@
+{% extends 'layout3.html'%}
+{% load static %}
+{% block bodycontent %}
+<center><h1 class="ride_text">View <span style="color: #f4db31;"> Detail</span></h1>
+<table class="table table-hover">
+	<tr>	
+		<td><h4> Customer Name</h4> </td>
+		<td><h5> {{selrec.Firstname}}</h5></td>
+	</tr>
+	<tr>
+		<td><h4> Email</h4> </td>
+		<td><h5>{{selrec.Email}}</h5></td>
+	</tr>
+	<tr>
+		<td><h4> Mobnum</h4> </td>
+		<td><h5>{{selrec.Mobnum}}</h5></td>
+	</tr>
+	<tr>
+		<td><h4> Pickuploc </h4></td>
+		<td><h5>{{selrec.Pickuploc}}</h5></td>
+	</tr>
+	<tr>
+		<td><h4> Droploc </h4></td>
+		<td><h5>{{selrec.Droploc}}</h5></td>
+	</tr>
+	<tr>
+		<td> <h4>Pickdate </h4></td>
+		<td><h5>{{selrec.Pickdate}}</h5></td>
+	</tr>
+	<tr>
+		<td> <h4>Picktime</h4> </td>
+		<td><h5>{{selrec.Picktime}}</h5></td>
+	</tr>
+	<tr>
+		<td> <h4>NumofPersons </h4></td>		
+		<td><h5>{{selrec.NumofPersons}}</h5></td>
+	</tr>
+	<tr>
+		<td><h4> Ac</h4> </td>
+		<td><h5>{{selrec.Ac}}</h5></td>
+	</tr>
+	<tr>
+		<td><h4> Request </h4></td>
+		<td><h5>{{selrec.Request}}</h5></td>
+	</tr>	
+	<tr>
+		<td colspan="2">
+		<center>
+			<a class="btn btn-dark btn-lg rounded" href="/details">Back</a>
+		</center>
+		</td>		
+	</tr>	
+</table>
+
+
+</body>
+</html>
+{% endblock %}

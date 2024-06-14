@@ -1,0 +1,54 @@
+{% extends 'layout3.html'%}
+{% load static %}
+{% block bodycontent %}
+<style>
+    th{
+        background-color: #343434;
+        color: white;
+    }
+</style>
+<div class="container">
+    <h1>Offers :</h1>
+  <div class="row">
+    <div class="col-lg-4">
+        <table class="table table-hover rounded">
+            <h3>View</h3>
+            <tr>
+                <th>Car Numder</th>
+                <th>Offer %:</th>
+                <th></th>
+            </tr>
+            {% for i in o %}
+            <tr>
+                <td>{{ i.carnumber}}</td>
+                <td>{{ i.offer }}%</td>
+                <td><a href="/offerdelete/{{i.id}}" class="btn btn-danger rounded">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="col-lg-6">
+        <table class="table table-hover table-striped">
+            <h3>Cars</h3>
+            <tr>
+                <td>Cars :</td>
+                <td>Offers (in %)</td>
+            </tr> 
+            {% for i in cr %}
+            <tr>
+                <td>
+                    <input type="text" value="{{ i.CarNumber }}">
+                    <input type="text" value="{{ i.id }}" hidden>                        
+                </td>
+                <td>
+                    <center>
+                        <a href="carviewoffer/{{ i.id }}" class="btn btn-lg btn-primary rounded">View</a>
+                    </center>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>    
+  </div>
+</div>
+{% endblock %}

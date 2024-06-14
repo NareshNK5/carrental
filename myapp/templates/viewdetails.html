@@ -1,0 +1,113 @@
+{% extends 'layout2.html'%}
+{% load static %}
+{% block bodycontent %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+
+
+      
+          <center><h1 class="ride_text"><span style="color: #f4db31;"> View Cars</span></h1>
+      </div>
+        
+    <center>
+    {% for getdata in result %}
+    
+      	
+      		
+      			
+        <div class="row">
+        	
+          <div class="col-sm-4">
+            <div ><img src="{{getdata.Photo.url}}" height="800" width="400">
+          </div>
+
+          
+           
+            <p class="long_text">{{getdata.Details}}</p>
+            
+              
+                   <table border=1>
+
+                    <tr>
+
+                       <td><i class="fa fa-car text-primary mr-2"></i><p class="long_text">Model: {{getdata.Model}}</p></td>
+                   </tr>
+                 
+                
+               
+                     <tr>
+
+                       <td><i class="fas fa-bars"></i><p class="long_text">Color: {{getdata.Color}}</p></td>
+                   </tr>
+                
+                
+                     <tr>
+
+                        <td><i class="fa fa-car text-primary mr-2"></i><p class="long_text">CarNumber: {{getdata.CarNumber}}</p></td>
+                    </tr>
+
+                    <tr>
+                
+                
+                    
+                        <td> <i class="fa fa-car text-primary mr-2"></i><p class="long_text"> Driver: {{getdata.DriverCharge}}</p></td>
+                    </tr>
+                
+                
+                
+                     <tr>
+
+                        <td><i class="fa fa-road text-primary mr-2"></i><p class="long_text">OnroadCharge: {{getdata.OnroadCharge}}</p></td>
+                    </tr>
+                
+                
+                     <tr>
+
+                       <td><i class="fa fa-fan text-primary mr-2"></i><p class="long_text">A/C: {{getdata.ACCharge}}</p></td>
+                   </tr>
+                   <tr>
+                
+               
+                     <td><a href="/select1/{{getdata.id}}"><p class="long_text">View</a></p></a></td>
+
+		             <td><a href="/edit1/{{getdata.id}}"><p class="long_text">edit</a></p></a></td>
+		             <td><a href="/delete1/{{getdata.id}}"><p class="long_text">delete</a></p></a></td>
+                   </tr>
+                   </table>
+                   
+                 </div>
+               </div>
+               
+                   
+		
+	
+
+	
+
+
+               
+
+{% endfor %}
+
+</center>
+   
+{% endblock %}
+
+
+
+	
+
+	
+
+     
+
+

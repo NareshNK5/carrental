@@ -1,0 +1,62 @@
+{% extends 'layout.html'%}
+{% load static %}
+{% block bodycontent %}
+<body>
+<div class="container mt-5">
+<form id="first_form" method="POST" action="regcus">
+	{% csrf_token %}
+    <center>
+        <table class="table">
+            <tr>
+                <td colspan="3">
+                    <h2><center>Customer <span style="color: #f4db31;">Registration</span></center></h2>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="name">Name</label><br>
+                    <input class="form-control" type="text" name="na">
+                </td>
+                <td>
+                    <label for="name">Mobile No</label><br>
+                    <input class="form-control" type="text" name="mo">
+
+                </td>
+                <td>
+                    <label for="name">Email ID</label><br>
+                    <input class="form-control" type="text" name="em">
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="name">Password</label><br>
+                    <input class="form-control" type="password" name="ps">
+                </td>
+                <td>
+                    <label for="name">Confirm Password</label><br>
+                    <input class="form-control" type="password" name="cps">
+
+                </td>
+                <td>
+                    <label for="name">Address</label><br>
+                    <textarea class="form-control" rows="3" cols="10" name="ad"></textarea>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                </td>
+                    <td colspan="2">
+                        <input class="btn btn-dark rounded"type="submit" value="Register"
+                        style="align-items: center;position: relative;left: 150px;">
+                    </td>
+            </tr>
+		</table>
+	</center>
+</form>
+</div>
+</body>
+<h1>{{msg}}</h1>
+{% endblock %}

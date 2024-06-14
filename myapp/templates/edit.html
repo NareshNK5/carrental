@@ -1,0 +1,80 @@
+{% extends 'layout3.html'%}
+{% load static %}
+{% block bodycontent %}
+	<center><h1 class="ride_text">Edit<span style="color: #f4db31;">  Detail</span></h1><br>
+    <form action="/update/{{user.id}}" enctype="multipart/form-data" method="POST">
+		{% csrf_token %}
+        <table class="table table-hover">
+        <tr>
+            <td><h4>Firstname:</h4> </td>
+            <td><h5><input type="text" id="regno" name="fname" value="{{user.Firstname}}"></h5></td>
+        </tr>
+
+        <tr>
+            <td><h4>Lastname:</h4> </td>
+            <td><h5><input type="text" id="name" name="lname" value="{{user.Lasttname}}"></h5></td>
+        </tr>
+
+        <tr>
+            <td><h4>Email:</h4> </td>
+            <td><h5><input type="text" id="course" name="email" value="{{user.Email}}"></h5></td>
+        </tr>
+
+        <tr>
+            <td><h4>Mobnum:</h4> </td>
+            <td><h5><input type="text" id="department" name="number" value="{{user.Mobnum}}"></h5></td>
+        </tr>
+
+        <tr>
+            <td><h4>Pickuploc:</h4> </td>
+            <td><h5><input type="text" id="department" name="picloc" value="{{user.Pickuploc}}"></h5></td>
+        </tr>
+
+         <tr>
+            <td><h4>Droploc:</h4> </td>
+            <td><h5><input type="text" id="department" name="droploc" value="{{user.Droploc}}"></h5></td>
+        </tr>
+
+         <tr>
+            <td><h4>Pickdate: </h4></td>
+            <td><h5><input type="text" id="department" name="picdate" value="{{user.Pickdate}}"></h5></td>
+        </tr>
+
+        <tr>
+            <td><h4>Picktime:</h4> </td>
+            <td><h5><input type="text" id="department" name="pictime" value="{{user.Picktime}}"></h5></td>
+        </tr>
+
+        <tr>
+            <td><h4>NumofPersons:</h4> </td>
+            <td><h5><input type="text" id="department" name="numperson" value="{{user.NumofPersons}}"></h5></td>
+        </tr>
+
+        <tr>
+            <td><h4>Ac:</h4></td>
+            <td><h5><input type="text" id="department" name="ac" value="{{user.Ac}}"></h5></td>
+        </tr>
+
+         <tr>
+            <td><h4>Request:</h4> </td>
+            <td><h5><input type="text" id="department" name="req" value="{{user.Request}}"></h5></td>
+        </tr>
+        <tr>
+            <td>
+                <center>
+                    <h4><input class="btn btn-lg btn-dark rounded" type="submit" value="Edit"></h4>
+                </center>
+            </td>
+            <td>
+                <center>
+                    <a class="btn btn-dark btn-lg rounded" href="/details">Back</a>
+                </center>
+            </td>
+        </tr>
+    </table>
+    </center>
+</form>
+<h1>{{msg}}</h1>
+</body>
+</html>
+{% endblock %}

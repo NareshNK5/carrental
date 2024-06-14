@@ -1,0 +1,44 @@
+<html>
+<body>
+	
+    <form action="/viewover" enctype="multipart/form-data" method="POST">
+		{% csrf_token %}
+        <table>
+        
+             
+
+        <tr>
+            <td>Model: </td>
+            <td><input type="adderess" id="name" name="txtmodel"></td>
+        </tr>
+
+        <tr>
+            <td>Features: </td>
+            <td><input type="text" id="course" name="txtfeatures"></td>
+        </tr>
+
+        <tr>
+            <td>Seats: </td>
+            <td><input type="text" id="department" name="txtseats"></td>
+        </tr>
+        
+        
+
+            
+        </tr>
+
+        <tr>
+            <td><input type="submit" value="update"></td>
+        </tr>
+    </table>
+    
+    
+
+
+
+            </form>
+            <h1>{{msg}}</h1>
+      
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+{% extends 'layout3.html'%}
+{% load static %}
+{% block bodycontent %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <form action="/insertrecord" enctype="multipart/form-data" method="POST">
+                {% csrf_token %}
+                <center>
+                    <h1>ADD <span style="color: #f4db31;">CAR</span></h1>
+                <table class="table table-hover" width="110%" height="120%">
+                    <tr>
+                        <td><h3>Photo:</h3> </td>
+                        <td><h3><input type="file" id="file" name="photo"></h3></td>
+                    </tr>
+            
+                    <tr>
+                        <td><h3>Deatils:</h3> </td>
+                        <td><h3><input type="adderess" id="name" name="txtdetails"></td>
+                    </tr>
+            
+                    <tr>
+                        <td><h3>Model:</h3> </td>
+                        <td><h3><input type="text" id="course" name="txtmodel"></h3></td>
+                    </tr>
+            
+                    <tr>
+                        <td><h3>Color:</h3> </td>
+                        <td><h3><input type="text" id="course" name="txtcolor"></h3></td>
+                    </tr>
+            
+                    <tr>
+                        <td><h3>Car Number:</h3> </td>
+                        <td><h3><input type="text" id="course" name="txtcarnumber"></h3></td>
+                    </tr>
+            
+                    <tr>
+                        <td><h3>Seats:</h3> </td>
+                        <td><h3><input type="text" id="course" name="txtseats"></h3></td>
+                    </tr>
+            
+                    <tr>
+                        <td><h3>DriverCharge:</h3> </td>
+                        <td><h3><input type="text" id="department" name="txtdrivercharge"></h3></td>
+                    </tr>
+                    <tr>
+                        <td><h3>Onroad Charge:</h3> </td>
+                        <td><h3><input type="text" id="department" name="txtonroadcharge"></h3></td>                    
+                    </tr>        
+                    <tr>
+                        <td><h3>ACCharge:</h3> </td>
+                        <td><h3><input type="text" id="department" name="txtaccharge"></h3></td>
+                    </tr>       
+                    <tr>
+                        <td>
+                            <h4><button class="btn btn-lg btn-primary rounded" type="submit" value="Add">Add Car</button></h4>
+                        </center>
+                        </td>
+                        <td>
+                            <a href="viewcars" class="btn btn-lg btn-dark rounded">Back</a>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+<h1>{{msg}}</h1>
+{% endblock %}

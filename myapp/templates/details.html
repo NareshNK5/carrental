@@ -1,0 +1,51 @@
+{% extends 'layout3.html'%}
+{% load static %}
+{% block bodycontent %}
+<form action="/details" enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    <center>
+        <h1><center>Booking <span style="color: #f4db31;">Details</span></center></h1>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th><h3>Booking ID</h3></th>
+                    <th><h3>Customer Name</h3></th>
+                    <th><h3>Pickup Place</b></h3></th>
+                    <th><h3>Drop Place</b></h3></th>
+                    <th><h3>Pick Date</b></h3></th>
+                    <th><h3>Pick Time</b></h3></th>
+                    <th><h3>Num of Persons</b></h3></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for getdata in getdata1 %}
+                <tr>
+                    <td ><h4> {{getdata.id}}</h4></td>
+                    <td ><h4> {{getdata.Firstname}}</h4></td>
+                    <td><h4> {{getdata.Pickuploc}}</h4></td>
+                    <td><h4> {{getdata.Droploc}}</h4></td>
+                    <td><h4> {{getdata.Pickdate}}</h4></td>
+                    <td><h4> {{getdata.Picktime}}</h4></td>
+                    <td><h4> {{getdata.NumofPersons}}</h4></td>
+                    <td><a href="/select/{{getdata.id}}"><i class="material-icons">&#xe8a0;</a></td>
+                    <td><a href="/edit/{{getdata.id}}"><i class="material-icons">&#xe254;</a></td>
+                    <td><a href="/delete/{{getdata.id}}"><i class="material-icons" style="color:red">&#xe16c;</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </center>
+</form>
+            
+   
+   {% endblock %}
+
+
+
+	
+
+	
+
+     
+
+

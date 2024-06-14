@@ -1,0 +1,36 @@
+{% extends 'layout.html'%}
+{% load static %}
+{% block bodycontent %}
+<div class="container mt-5 p-2">
+  <h2><center>OUR AVAILABLE <span style="color: #f4db31;">CABS</span></center></h2>
+  <div class="row">
+      {% for getdata in res %}      
+      <div class="col-lg-4">
+        <div class="card " style="height: 600px;">
+          <img class="card-img-top" src="{{getdata.Photo.url}}" alt="Card image" style="width:300px;height: 200px;">
+          <div class="card-body">
+            <center>
+            <h4 class="card-title">DETAIL</h4>
+            <p class="card-text">{{getdata.Details}}</p>
+            <p class="card-text">
+              MODEL : {{getdata.Model}}<br>
+              Color : {{getdata.Color}}<br>
+              CarNumber : {{getdata.CarNumber}}<br>
+              Seats : {{getdata.Seats}}
+              DriverCharge : {{getdata.DriverCharge}}<br>
+              OnroadrCharge : {{getdata.OnroadCharge}}<br>
+              OnroadrCharge : {{getdata.OnroadCharge}}<br>
+              ACCharge : {{getdata.ACCharge}}
+            </p>
+          </center>
+          </div>
+        </div><hr>
+        <center>
+          <a href="/book1/{{getdata.id}}" class="btn btn-primary">Book  Now</a><br><hr>
+        </center>
+        
+      </div>
+      {% endfor %}
+  </div>
+</div>
+{% endblock %}

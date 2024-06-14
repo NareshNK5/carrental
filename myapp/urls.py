@@ -1,0 +1,62 @@
+from django.contrib import admin
+from django.urls import path
+from myapp import views
+
+urlpatterns = [
+    path('',views.homepage),
+    path('about',views.aboutpage),
+    path('cabspage',views.cabspage),
+    path('booking',views.bookingpage),
+    path('book',views.bookpage),
+    path('adminpage',views.adminpage),
+    path('admin',views.admin),
+    path('adminlogin',views.adminlogin),
+    path('insertrecord',views.insertrecord),
+    path('viewdetails',views.viewdetails),
+    path('add',views.add),
+    path('viewcars',views.viewcars),
+    path('book1/<int:id>',views.book1),
+    path('logincheck',views.logincheck),
+    path('login',views.login),
+    path('details',views.details),
+    path('bookdetails',views.bookdetails),
+    path('details2',views.details2),
+    path('loginsucess/<int:id>',views.loginsucess),
+    path('login2',views.login2),
+    path('feedba',views.feedba),
+    path('addfeed',views.addfeed),
+    path('select/<int:id>',views.select),
+    path('update/<int:id>',views.update),
+    path('edit/<int:id>',views.edit),
+    path('delete/<int:id>',views.delete),
+    path('select1/<int:id>',views.select1),
+    path('edit1/<int:id>',views.edit1),
+    path('update1/<int:id>',views.update1),
+    path('replay/<int:id>',views.replay),
+    path('logout',views.logout),
+    path('delete1/<int:id>',views.delete1),
+    path('delete2/<int:id>',views.delete2),
+    path('update3/<int:id>',views.update3),
+    path('viewreplay',views.viewreplay),
+    path('area',views.area),
+    path('addarea',views.addarea),
+    path('addarea1',views.addarea1),
+    path('areaselect/<int:id>',views.areaselect),
+    path('areaedit/<int:id>',views.areaedit),
+    path('areaeditsave/<int:id>',views.areaeditsave),
+    path('areadelete/<int:id>',views.areadelete),
+    path('caboffer',views.caboffer),    
+    path('aoffer',views.aoffer),    
+    path('offeradd',views.offeradd),
+    path('offerdelete/<int:id>',views.offerdelete),
+    path('carviewoffer/<int:id>',views.carviewoffer),
+    
+#customer
+
+    path('cusreg',views.cusreg),
+    path('regcus',views.regcus),
+    path('clientbooking',views.clientbooking),
+    path('viewfeedback/<int:id>',views.viewfeedback),
+
+]
+

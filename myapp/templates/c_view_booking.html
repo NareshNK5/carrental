@@ -1,0 +1,42 @@
+{% extends 'layout.html'%}
+{% load static %}
+{% block bodycontent %}
+<div class="container mt-5 p-3">
+    <div class="row">
+        <div class="col-md-12">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3><table class="table table-hover">
+                <tr>
+                    <th>                        
+                        <h2><center>BOOKING <span style="color: #f4db31;">DETAILS</span></center></h2><hr>
+                    </th>
+                </tr>
+				<tr style="background-color:  #343434;color:white" class="rounded">
+					<th>Date</th>
+					<th>Time</th>
+					<th>Car Number</th>
+					<th>Pickup Location</th>
+					<th>Drop Location</th>
+					<th>Invoice</th>
+					<th>Review</th>
+				</tr>
+				{% for res in f %}
+				<tr>
+					<td>{{res.Pickdate}}</td>
+					<td>{{res.Picktime}}</td>
+					<td>{{res.carno}}</td>
+					<td>{{res.Pickuploc}}</td>
+					<td>{{res.Droploc}}</td>
+					<td><a href="//{{res.id}}"><i class="material-icons">&#xe8a0;</i></a>
+					<td><a href="/viewfeedback/{{res.id}}"><i class="material-icons">&#xe254;</i></a>
+					</td>
+				</tr>	
+				{% endfor %}
+			</table></h3>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'layout.html'%}
+{% load static %}
+{% block bodycontent %}
+<div class="container mt-5 p-2">
+  <h2><center>OUR AVAILABLE <span style="color: #f4db31;">CABS</span></center></h2>
+  <div class="row">
+      {% for getdata in cr %}      
+      <div class="col-lg-4">
+        <div class="card " style="height: 100%;">
+          <img class="card-img-top" src="{% static 'images/offer.png' %}" alt="Card image">
+          <div class="card-img-overlay">
+            <div class="card-body">
+              <center>
+              <h4 class="card-title"><u>OFFER</u></h4>
+              <p class="card-text text-white shadow">
+                Car ID : {{getdata.carid}}<br>
+                Car Number : {{getdata.carnumber}}<br>
+                Offer:{{ getdata.offer }}%
+              </p>
+            </center>
+            </div>
+          </div>
+        </div><hr>
+        <center>
+          <a href="/book1/{{getdata.carid}}" class="btn btn-primary">Book  Now</a><br><hr>
+        </center>
+        
+      </div>
+      {% endfor %}
+  </div>
+</div>
+{% endblock %}

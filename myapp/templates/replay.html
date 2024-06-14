@@ -1,0 +1,27 @@
+{% extends 'layout3.html'%}
+{% load static %}
+{% block bodycontent %}
+<form action="/update3/{{user.id}}" enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    <center><h5 class="ride_text">Repaly<span style="color: #f4db31;"> Feedback</span></h5><br>
+        <table>
+        	<tr>
+            <td><h3>Name:</h3> </td>
+            <td><h4><input type="text" id="regno" name="ne" value="{{user.Name}}"></h4></td>
+        </tr>
+        <tr>
+            <td><h3>Customer Feedback:</h3> </td>
+            <td><h4><input type="text" id="regno" name="cus" value="{{user.Cusfeedback}}"></h4></td>
+        </tr>
+        	<tr>
+            <td><h3>Answer:</h3> </td>
+            <td><h4><input type="text" id="regno" name="txtanswer" value="{{user.Answer}}"></h4></td>
+        </tr>
+        <tr>
+            <td><h3><input class="btn btn-lg btn-primary rounded" type="submit" value="Replay"></h3></td>
+        </tr>
+        </table>
+    </center>
+</form>
+<h1>{{msg}}</h1>
+{% endblock %}

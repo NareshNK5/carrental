@@ -1,0 +1,25 @@
+{% extends 'layout.html'%}
+{% load static %}
+{% block bodycontent %}
+<form action="/replay/{{getdata.id}}" enctype="multipart/form-data" method="POST">
+  {% csrf_token %}
+  <h2><center>Replay To <span style="color: #f4db31;">Customers</span></center></h2>
+  <center>
+    <table border="1" table table-bordered>
+      <tr>
+        <td><h4><b>Name</td></td></b></h4>
+        <td><h4><b> Customer Feedback</td></td></b></h4>
+        <td><h4><b>Repaly</td></td></b></h4>
+      </tr>
+      {% for getdata in res %}
+      <tr>
+        <td><p class="reader_text"> {{getdata.Name}}</p></td>
+        <td><p class="reader_text"> {{getdata.Cusfeedback}}<br></p></td>
+        <td><p class="reader_text"> {{getdata.Answer}}<br></p></td>
+      </tr>
+      {% endfor %}
+    </table>
+  </center>
+</form>
+{% endblock %}
+

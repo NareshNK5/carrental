@@ -1,0 +1,48 @@
+{% extends 'layout.html'%}
+{% load static %}
+{% block bodycontent %}
+<div class="container mt-5">
+	<div class="row mt-5">
+		<div class="col-lg-4">
+			
+		</div>
+		<div class="col-lg-4 mt-5">
+			<form id="first_form" method="POST" action="/logincheck">
+				{% csrf_token %}
+				 <h1><center>Customer <span style="color: #f4db31;">Login</span></center></h1>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-4" style="align-items: center;">
+							<table class="table table-warning">
+								<tr>
+									<td><label for="first name">Username</label></td>
+									<td><input class="from-control" type="text" name="una"></td>
+								</tr>
+								<tr>
+									<td><label for="last name">Password</label></td>
+									<td><input class="from-control" type="password"  name="paa"></td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										<a href="cusreg">New user? 
+											click to create your new account</a>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2">
+										<input class="btn btn-dark rounded"type="submit" value="login"
+										style="align-items: center;position: relative;left: 120px;">
+									</td>	
+								</tr>
+							</table>				
+						</div>
+						<center><a href="adminlogin">Admin Login!</a></center>
+					</div>
+				</div>
+			</form>
+			<h1>{{msg}}</h1>
+			<h1>{{result}}</h1>
+		</div>
+	</div>
+</div>
+{% endblock %}

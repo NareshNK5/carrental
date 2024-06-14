@@ -1,0 +1,69 @@
+{% extends 'layout3.html'%}
+{% load static %}
+{% block bodycontent %}
+<center><h1 class="ride_text">Edit <i class="fa fa-car"> </i><span style="color: #f4db31;"> Details </span></h1><br>
+<form action="/update1/{{user.id}}" enctype="multipart/form-data" method="POST">
+	{% csrf_token %}
+    <center><table class="table table-hover">
+        <tr>
+            <td><h3>Photo:</h3> </td>
+            <td><h4><input type="file" id="file" value="{{user.Photo.url}}"></h4></td>
+            <img src="{{user.Photo.url}}" name="dp" hidden>
+        </tr>
+        <tr>
+            <td><h3>Details:</h3> </td>
+            <td><h4><input type="text" id="regno" name="txtdetails" value="{{user.Details}}"></h4></td>
+        </tr>
+
+        <tr>
+            <td><h3>Model:</h3> </td>
+            <td><h4><input type="text" id="name" name="txtmodel" value="{{user.Model}}"></h4></td>
+        </tr>
+
+        <tr>
+            <td><h3>Color:</h3> </td>
+            <td><h4><input type="text" id="course" name="txtcolor" value="{{user.Color}}"></h4></td>
+        </tr>
+
+        <tr>
+            <td><h3>CarNumber:</h3> </td>
+            <td><h4><input type="text" id="carname" name="txtcarnumber" value="{{user.CarNumber}}"></h4></td>
+        </tr>
+
+        <tr>
+            <td><h3>Seats: </h3></td>
+            <td><h4><input type="text" id="seats" name="txtseats" value="{{user.Seats}}"></h4></td>
+        </tr>
+
+        <tr>
+            <td><h3>Driver: </h3></td>
+            <td><h4><input type="text" id="driver" name="txtdrivercharge" value="{{user.DriverCharge}}"></h4></td>
+        </tr>
+
+         <tr>
+            <td><h3>OnroadCharge:</h3> </td>
+            <td><h4><input type="text" id="onboard" name="txtonroadcharge" value="{{user.OnroadCharge}}"></h4></td>
+        </tr>
+
+        <tr>
+           <td> <h3>A/C:</h3> </td>
+           <td><h4><input type="text" id="ac" name="txtaccharge" value="{{user.ACCharge}}"></h4></td>
+       </tr>
+         <tr>
+            <td> <h3>Offer (in %):</h3> </td>
+            <td><h4>
+                <select name="txtoffer">
+                    <option>None</option>
+                    <option>25</option>
+                </select></h4></td>
+        </tr>
+        <tr>
+            <td><h4><input class="btn btn-lg btn-primary rounded"type="submit" value="Edit"><h4></td>
+            <td>
+                <a href="\viewcars" class="btn btn-lg btn-dark rounded">Back</a></td>
+        </tr>
+    </table>
+</center>
+</form>
+<h1>{{msg}}</h1>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'layout.html'%}
+{% load static %}
+{% block bodycontent %}     
+        
+        <h1>OUR AVAILABLE <span style="color: #f4db31;">CABS</span></h1>
+        <h2><center>OUR AVAILABLE <span style="color: #f4db31;">CABS</span></center></h2>
+        
+          <div class="row">
+            {% for res in result %}
+            <div class="col-sm-4">
+              <div class="taxi_main">
+                <div class="round_1">01</div>
+                <h2 class="carol_text">CAR {{res.id}}</h2>
+                <p class="reader_text">MODEL : TATA INDICA (A/C){{res.model}}<br> </p>
+                <p> Best and Compact Ride with Good Price.{{res.features}}<br>
+                No of Seats : 4 (+1 Driver){{res.seats}} </p>
+                <div class=""><a href="#"><img src="{% static 'images/tatain.jpg' %}"></a></div>
+              </div>
+            </div>
+            {% endblock %}

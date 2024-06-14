@@ -1,0 +1,50 @@
+{% extends 'layout3.html'%}
+{% load static %}
+{% block bodycontent %}
+<style>
+    th{
+        background-color: #343434;
+        color: white;
+    }
+</style>
+<div class="container">
+    <h1>Offers :</h1>
+  <div class="row">
+    <div class="col-lg-4">
+        </div>
+    <div class="col-lg-4">
+        <form action="/offeradd" enctype="multipart/form-data" method="POST">
+            {% csrf_token %}
+        <table class="table table-hover table-striped">
+            <h3>Offer Add</h3>
+            <tr>
+                <td>Car Id</td>
+                <td>Car Number</td>
+                <td>Car offer(in %)</td>
+            </tr>
+            <tr>
+                <td><input type="text" name="oid" value="{{ o.id }}" readonly></td>
+                <td><input type="text" name="ocar" value="{{ o.CarNumber }}" readonly></td>
+                <td>
+                    <select name="off" id="off">
+                        <option>None</option>
+                        <option>10</option>
+                        <option>20</option>
+                        <option>30</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <center>
+                    <button type="submit" class="btn-lg btn-primary rounded">Submit</button>
+                </center>
+                </td>
+            </tr>
+
+        </table>
+        </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

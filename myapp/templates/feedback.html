@@ -1,0 +1,25 @@
+{% extends 'layout.html'%}
+{ % load static % }
+{% block bodycontent %}
+<div class="container mt-5 p-5">
+    <div class="row">
+        <div class="col-lg-4">
+        </div>
+        <div class="col-lg-4 m-5">
+            <form action="/addfeed" enctype="multipart/form-data" method="POST">
+                {% csrf_token %}
+            <center>
+                <b><p class="h1">Feed Back</b>
+                <div class="form-group">
+                    <input type="text"  class="form-control new-input p-4" name="cn" value="{{ cr.Firstname }}" readonly><br>
+                    <input type="text"  class="form-control new-input p-4" name="cm" value="{{ cr.Mobnum }}" readonly><br>
+                    <textarea class="form-control py-3 px-4 new-input" rows="3" name="feedb" placeholder="Your Feedback" required="required"></textarea><br>
+                    <input class="btn btn-primary btn-lg rounded" type="submit" name="Submit Feedback"></a>
+                </div><br>  
+                </center>
+            </form>
+        </div>
+    </div>
+</div>
+<h1>{{msg}}</h1>
+{% endblock %}
